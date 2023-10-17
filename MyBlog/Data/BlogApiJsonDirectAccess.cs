@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics;
+using System.Text.Json;
 using Data.Models;
 using Data.Models.Api;
 using Microsoft.Extensions.Options;
@@ -36,8 +37,9 @@ public class BlogApiJsonDirectAccess : IBlogApi
     private void Load<T>(ref List<T>? list, string folder)
     {
         if (list == null)
-            list = [];
+            list = new();
         var fullpath = $@"{_settings.DataPath}\{folder}";
+        Debug.WriteLine(fullpath);
         foreach (var f in Directory.GetFiles(fullpath))
         {
             var json = File.ReadAllText(f);
@@ -55,7 +57,7 @@ public class BlogApiJsonDirectAccess : IBlogApi
         await File.WriteAllTextAsync(filePath, JsonSerializer.Serialize<T>(item));
         if (list == null)
         {
-            list = [];
+            list = new();
         }
         if (!list.Contains(item))
         {
@@ -180,7 +182,7 @@ public class BlogApiJsonDirectAccess : IBlogApi
     public async Task<List<BlogPost>> GetBlogPostsAsync(int numberofposts, int startindex)
     {
         await LoadBlogPostsAsync();
-        return _blogPosts ?? [];
+        return _blogPosts ?? new();
 
     }
 

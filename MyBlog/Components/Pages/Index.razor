@@ -3,6 +3,22 @@
 @using Data.Models
 @inject IBlogApi _api
 
+<ul>
+    @foreach (var p in posts)
+    {
+        <li><a href="/Post/@p.Id">@p.Title</a></li>
+    }
+</ul>
+
+@* <h1>Hello</h1> *@
+
 @code {
+    protected List<BlogPost> posts = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        posts = await _api.GetBlogPostsAsync(10, 0);
+        await base.OnInitializedAsync();
+    }
 
 }
