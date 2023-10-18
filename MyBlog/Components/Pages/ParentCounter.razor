@@ -1,0 +1,16 @@
+﻿@page "/ParentCounter"
+<h3>ParentCounter</h3>
+
+<CounterWithParameter IncrementAmount="@_incrementAmount" @bind-CurrentCount="_currentCount">
+    
+</CounterWithParameter>
+The  current count is: @_currentCount
+
+<div>@message</div>
+<button @onclick="@((e) => message=$"x:{e.ClientX} y:{e.ClientY}")">Check position</button>
+@code {
+    int _incrementAmount = 10;
+    int _currentCount = 0;
+    string message;
+
+}
