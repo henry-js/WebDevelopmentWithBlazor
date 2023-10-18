@@ -1,16 +1,4 @@
-namespace Data.Models;
-
-public class Category
-{
-    public string? Id { get; set; }
-    public string Name { get; set; } = string.Empty;
-}
-
-public class Tag
-{
-    public string? Id { get; set; }
-    public string Name { get; set; } = string.Empty;
-}
+﻿namespace Data.Models;
 
 public class BlogPost
 {

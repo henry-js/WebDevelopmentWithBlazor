@@ -1,10 +1,11 @@
-namespace Data.Models.Api;
+﻿namespace Data.Models.Interfaces;
+
 public interface IBlogApi
 {
     Task<int> GetBlogPostCountAsync();
-    Task<List<BlogPost>> GetBlogPostsAsync(int numberofposts, int startindex);
-    Task<List<Category>> GetCategoriesAsync();
-    Task<List<Tag>> GetTagsAsync();
+    Task<List<BlogPost>?> GetBlogPostsAsync(int numberofposts, int startindex);
+    Task<List<Category>?> GetCategoriesAsync();
+    Task<List<Tag>?> GetTagsAsync();
     Task<BlogPost?> GetBlogPostAsync(string id);
     Task<Category?> GetCategoryAsync(string id);
     Task<Tag?> GetTagAsync(string id);
@@ -15,4 +16,5 @@ public interface IBlogApi
     Task DeleteCategoryAsync(string id);
     Task DeleteTagAsync(string id);
     Task InvalidateCacheAsync();
+
 }
