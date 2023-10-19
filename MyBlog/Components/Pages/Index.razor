@@ -6,12 +6,16 @@
 <ul>
     @foreach (var p in posts)
     {
-            <li>@p.Title</li>
+        <li>
+            <a href="/Post/@p.Id">@p.Title></a>
+        </li>
     }
 </ul>
 
 
 @code {
+    [Parameter]
+    public string BlogPostId { get; set; }
     protected List<BlogPost> posts = new List<BlogPost>();
     protected override async Task OnInitializedAsync()
     {
