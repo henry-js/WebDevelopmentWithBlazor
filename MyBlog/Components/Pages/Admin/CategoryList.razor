@@ -9,6 +9,7 @@
     <CustomCssClassProvider ProviderType="BootstrapFieldCssClassProvider" />
     <InputText @bind-Value="@Item.Name" />
     <ValidationMessage For="@(()=>Item.Name)" />
+    <div>@Item.Id</div>
     <button class="btn btn-success" type="submit">Save</button>
 </EditForm>
 <ItemList Items="Items" DeleteEvent="@Delete" SelectEvent="@Select" ItemType="Category">
