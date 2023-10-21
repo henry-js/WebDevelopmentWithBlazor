@@ -10,7 +10,7 @@
             </td>
             <td>@ItemTemplate(item)</td>
             <td>
-                <button class="btn btn-danger" @onclick="@(() => DeleteEvent.InvokeAsync(item))"></button>
+                <button class="btn btn-danger" @onclick="@(() => DeleteEvent.InvokeAsync(item))">Delete</button>
             </td>
         </tr>
     </Virtualize>
